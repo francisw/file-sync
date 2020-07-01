@@ -19,6 +19,7 @@ RUN apk add --update build-base curl bash ocaml && \
 
 # USER nginx:nginx
 ADD ./entrypoint.sh /opt/bin/
+ADD .unison /root/.unison
 
 VOLUME ["/mnt/app_data","/var/app_data"]
 
@@ -30,5 +31,9 @@ HEALTHCHECK --interval=30s \
 		touch /var/app_data/${F} && \
 		sleep 1 && \
 		rm /mnt/app_data/${F}
+
+EXPOSE 9001
+EXPOSE 9002
+EXPOSE 9003
 
 ENTRYPOINT ["/opt/bin/entrypoint.sh"]
