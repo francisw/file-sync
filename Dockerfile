@@ -18,8 +18,8 @@ RUN apk add --update build-base curl bash ocaml && \
     rm -rf /tmp/unison-${UNISON_VERSION}
 
 # USER nginx:nginx
-ADD ./entrypoint.sh /opt/bin/
-ADD .unison /root/.unison
+COPY ./entrypoint.sh /opt/bin/
+COPY .unison /root/.unison
 
 VOLUME ["/mnt/app_data","/var/app_data"]
 
