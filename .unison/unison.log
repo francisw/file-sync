@@ -1,0 +1,126 @@
+UNISON 2.48.4 started propagating changes at 09:39:07.69 on 29 Jun 2020
+[BGN] Copying properties for  from /mnt/cache/app_data to /mnt/app_data
+[END] Copying properties for 
+[BGN] Copying client_1 from /mnt/app_data to /mnt/cache/app_data
+[END] Copying client_1
+[BGN] Copying client_2 from /mnt/app_data to /mnt/cache/app_data
+[END] Copying client_2
+[BGN] Copying client_3 from /mnt/app_data to /mnt/cache/app_data
+[END] Copying client_3
+[BGN] Copying client_4 from /mnt/app_data to /mnt/cache/app_data
+[END] Copying client_4
+[BGN] Copying client_5 from /mnt/app_data to /mnt/cache/app_data
+[END] Copying client_5
+[BGN] Copying docker-sync-boilerplate from /mnt/app_data to /mnt/cache/app_data
+[END] Copying docker-sync-boilerplate
+UNISON 2.48.4 finished propagating changes at 09:39:07.76 on 29 Jun 2020
+Synchronization complete at 09:39:07  (7 items transferred, 0 skipped, 0 failed)
+Fatal error: Cannot find canonical name of /mnt/share/app_data: unable to cd either to it
+
+(/mnt/share/app_data: No such file or directory)
+or to its parent /mnt/share
+(/mnt/share: No such file or directory)
+The root of one of the replicas has been completely emptied.
+Unison may delete everything in the other replica.  (Set the 
+'confirmbigdel' preference to false to disable this check.)
+
+UNISON 2.48.4 started propagating changes at 20:48:07.00 on 29 Jun 2020
+[BGN] Copying client_4/anothert from /mnt/app_data to /mnt/cache/app_data
+[END] Copying client_4/anothert
+UNISON 2.48.4 finished propagating changes at 20:48:07.00 on 29 Jun 2020
+Synchronization complete at 20:48:07  (1 item transferred, 0 skipped, 0 failed)
+Terminated!
+UNISON 2.48.4 started propagating changes at 20:52:38.33 on 29 Jun 2020
+[BGN] Copying properties for  from //node-4//tmp to /mnt/cache/app_data
+[ERROR] Skipping snap.lxd
+  Error in scanning directory:
+Permission denied [opendir(/tmp/snap.lxd)]
+[ERROR] Skipping systemd-private-d527454b433d418e9e42affa0b40894e-chrony.service-4H6LUh
+  Error in scanning directory:
+Permission denied [opendir(/tmp/systemd-private-d527454b433d418e9e42affa0b40894e-chrony.service-4H6LUh)]
+[ERROR] Skipping systemd-private-d527454b433d418e9e42affa0b40894e-systemd-logind.service-kRDQii
+  Error in scanning directory:
+Permission denied [opendir(/tmp/systemd-private-d527454b433d418e9e42affa0b40894e-systemd-logind.service-kRDQii)]
+[ERROR] Skipping systemd-private-d527454b433d418e9e42affa0b40894e-systemd-resolved.service-APROnh
+  Error in scanning directory:
+Permission denied [opendir(/tmp/systemd-private-d527454b433d418e9e42affa0b40894e-systemd-resolved.service-APROnh)]
+[BGN] Copying .ICE-unix from //node-4//tmp to /mnt/cache/app_data
+[BGN] Copying .Test-unix from //node-4//tmp to /mnt/cache/app_data
+[BGN] Copying .X11-unix from //node-4//tmp to /mnt/cache/app_data
+[BGN] Copying .XIM-unix from //node-4//tmp to /mnt/cache/app_data
+[BGN] Copying .font-unix from //node-4//tmp to /mnt/cache/app_data
+[BGN] Copying client_1 from /mnt/cache/app_data to //node-4//tmp
+[BGN] Copying client_2 from /mnt/cache/app_data to //node-4//tmp
+[BGN] Copying client_3 from /mnt/cache/app_data to //node-4//tmp
+[BGN] Copying client_4 from /mnt/cache/app_data to //node-4//tmp
+[BGN] Copying client_5 from /mnt/cache/app_data to //node-4//tmp
+[BGN] Copying docker-sync-boilerplate from /mnt/cache/app_data to //node-4//tmp
+[BGN] Copying unison-fsmonitor from //node-4//tmp to /mnt/cache/app_data
+[END] Copying properties for 
+[END] Copying .ICE-unix
+[END] Copying .Test-unix
+[END] Copying .X11-unix
+[END] Copying .XIM-unix
+[END] Copying .font-unix
+[END] Copying client_1
+[END] Copying client_3
+Shortcut: copied /tmp/client_5/a.b from local file /tmp/.unison.client_4.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/from_client_4_node_4
+Shortcut: copied /tmp/client_4/from_client_4_node_4 from local file /tmp/.unison.client_4.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/from4
+Shortcut: copied /tmp/client_4/from4 from local file /tmp/.unison.client_4.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/anothert
+Shortcut: copied /tmp/client_4/anothert from local file /tmp/.unison.client_2.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/a.b
+Shortcut: copied /tmp/docker-sync-boilerplate/default_monit/docker-compose-dev.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/default/docker-compose-dev.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/not_default_config_name/docker-sync-special.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/default/docker-sync.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/not_default_config_name/docker-compose.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/default_with_user/docker-compose.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/default_with_user/docker-compose.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/default_monit/docker-compose.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/not_default_config_name/docker-compose-dev.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/default_with_user/docker-compose-dev.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-root-user/docker-compose.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-ftp-user/docker-compose.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-ftp-user/docker-compose.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison/docker-compose.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/unison/docker-compose.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/dynamic-configuration-dotnev/docker-compose.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-root-user/docker-compose-dev.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-new-user/docker-compose-dev.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-new-user/docker-compose-dev.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-ftp-user/docker-compose-dev.yml
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-ftp-user/docker-compose-dev.yml from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison/docker-compose-dev.yml
+[END] Copying client_5
+[END] Copying client_4
+[END] Copying client_2
+Shortcut: copied /tmp/docker-sync-boilerplate/.git/logs/refs/heads/master from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/.git/logs/HEAD
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-root-user/app/some_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-root-user/app/ignored_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-root-user/app/ignored_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-ftp-user/app/some_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-ftp-user/app/some_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-ftp-user/app/ignored_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-ftp-user/app/ignored_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison/app/some_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison/app/some_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison/app/ignored_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison/app/ignored_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/dynamic-configuration-dotnev/app/some_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/dynamic-configuration-dotnev/app/some_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/dynamic-configuration-dotnev/app/ignored_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/dynamic-configuration-dotnev/app/ignored_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-root-user/app/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-root-user/app/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-ftp-user/app/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-ftp-user/app/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/simplest/app/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/simplest/app/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/rsync/app/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/rsync/app/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/dynamic-configuration-dotnev/app/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/dynamic-configuration-dotnev/app/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/advanced/app/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/dynamic-configuration-dotnev/app/some_folder/.ignored_dot_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-root-user/app/some_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/dynamic-configuration-dotnev/app/some_folder/ignored_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/dynamic-configuration-dotnev/app/some_folder/.ignored_dot_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison/app/some_folder/.ignored_dot_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/dynamic-configuration-dotnev/app/some_folder/ignored_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison/app/some_folder/ignored_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison/app/some_folder/.ignored_dot_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-ftp-user/app/some_folder/.ignored_dot_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison/app/some_folder/ignored_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-ftp-user/app/some_folder/ignored_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-ftp-user/app/some_folder/.ignored_dot_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-root-user/app/some_folder/.ignored_dot_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-ftp-user/app/some_folder/ignored_folder/index.html
+Shortcut: copied /tmp/docker-sync-boilerplate/unison-root-user/app/some_folder/ignored_folder/index.html from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/unison-root-user/app/some_folder/.ignored_dot_folder/index.html
+[END] Copying unison-fsmonitor
+Shortcut: copied /tmp/docker-sync-boilerplate/.git/logs/refs/remotes/origin/HEAD from local file /tmp/.unison.docker-sync-boilerplate.a98de7b00f4e13937cf946aeeb51b73f.unison.tmp/.git/logs/refs/heads/master
+[END] Copying docker-sync-boilerplate
+UNISON 2.48.4 finished propagating changes at 20:52:38.37 on 29 Jun 2020
+Synchronization complete at 20:52:38  (13 items transferred, 4 skipped, 0 failed)
+  skipped: snap.lxd (Error in scanning directory:
+Permission denied [opendir(/tmp/snap.lxd)])
+  skipped: systemd-private-d527454b433d418e9e42affa0b40894e-chrony.service-4H6LUh (Error in scanning directory:
+Permission denied [opendir(/tmp/systemd-private-d527454b433d418e9e42affa0b40894e-chrony.service-4H6LUh)])
+  skipped: systemd-private-d527454b433d418e9e42affa0b40894e-systemd-logind.service-kRDQii (Error in scanning directory:
+Permission denied [opendir(/tmp/systemd-private-d527454b433d418e9e42affa0b40894e-systemd-logind.service-kRDQii)])
+  skipped: systemd-private-d527454b433d418e9e42affa0b40894e-systemd-resolved.service-APROnh (Error in scanning directory:
+Permission denied [opendir(/tmp/systemd-private-d527454b433d418e9e42affa0b40894e-systemd-resolved.service-APROnh)])
+UNISON 2.48.4 started propagating changes at 21:00:29.64 on 29 Jun 2020
+[BGN] Copying test1 from /mnt/cache/app_data to //node-4//tmp
+Shortcut: copied /tmp/test1 from local file /tmp/client_5/a.b
+[END] Copying test1
+UNISON 2.48.4 finished propagating changes at 21:00:29.64 on 29 Jun 2020
+Synchronization complete at 21:00:29  (1 item transferred, 0 skipped, 0 failed)
+Terminated!
