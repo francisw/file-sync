@@ -3,7 +3,7 @@ services:
   file-sync:
     build: 
       context: .
-    image: 10.156.0.2:5000:brcms/file-sync 
+    image: brcms/file-sync 
     ports:
     - "9001:9001"
     - "9002:9002"
