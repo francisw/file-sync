@@ -21,7 +21,7 @@ RUN apk add --update build-base curl bash ocaml && \
 COPY ./entrypoint.sh /opt/bin/
 COPY .unison /root/.unison
 
-VOLUME ["/mnt/app_data","/var/app_data"]
+VOLUME ["/mnt/app_data","/mnt/host/var"]
 
 HEALTHCHECK --interval=30s \
 	--retries=3 \
