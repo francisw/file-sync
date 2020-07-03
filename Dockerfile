@@ -18,7 +18,7 @@ RUN apk add --update build-base curl bash ocaml && \
     rm -rf /tmp/unison-${UNISON_VERSION}
 
 # USER nginx:nginx
-COPY ./entrypoint.sh /opt/bin/
+COPY ./main.sh /opt/bin/
 COPY .unison /root/.unison
 
 VOLUME ["/mnt/app_data","/mnt/host/var"]
@@ -37,4 +37,4 @@ EXPOSE 9001
 EXPOSE 9002
 EXPOSE 9003
 
-CMD ["/opt/bin/entrypoint.sh"]
+CMD ["/opt/bin/main.sh"]
