@@ -1,11 +1,13 @@
 version: '3'
+
 services:
   file-sync:
     build: 
       context: .
+    container_name: file-sync 
     image: brcms/file-sync 
+    restart: always
     ports:
     - "9001:9001"
     - "9002:9002"
     - "9003:9003"
-    - "9004:9004"

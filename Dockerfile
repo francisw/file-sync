@@ -24,16 +24,16 @@ COPY .unison /root/.unison
 VOLUME ["/mnt/app_data","/var/app_data"]
 
 HEALTHCHECK --interval=30s \
-	--start-period=5m \
 	--retries=3 \
 	--timeout=1s \
-	CMD F=.sync-check.$RANDOM && \
-		touch /var/app_data/${F} && \
-		sleep 1 && \
-		rm /mnt/app_data/${F}
+        CMD /bin/true
+#	CMD F=.sync-check.$RANDOM && \
+#		touch /var/app_data/${F} && \
+#		sleep 1 && \
+#		rm /mnt/app_data/${F}
 
 EXPOSE 9001
 EXPOSE 9002
 EXPOSE 9003
 
-ENTRYPOINT ["/opt/bin/entrypoint.sh"]
+CMD ["/opt/bin/entrypoint.sh"]
