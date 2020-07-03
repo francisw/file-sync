@@ -12,7 +12,7 @@ cd ${SRC}/.file-sync
 cp -rp ${SRC} ${CACHE}+
 
 [ -d ${CACHE}- ] && rm -rf ${CACHE}-
-[ -d ${CACHE} ] && mv ${CACHE}-
+[ -d ${CACHE} ] && mv ${CACHE} ${CACHE}-
 mv ${CACHE}+ ${CACHE}
 [ -d ${CACHE}- ] && rm -rf ${CACHE}-
 
