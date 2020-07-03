@@ -29,7 +29,7 @@ HEALTHCHECK --interval=30s \
 	--retries=3 \
 	--timeout=1s \
 	CMD F=.file-sync/sync-check.$RANDOM && \
-		touch /var/app_data/${F} && \
+		touch /mnt/host/var/app_data/${F} && \
 		sleep 1 && \
 		[ -f /mnt/app_data/cacheable/${F} ]  # AND rm -f /mnt/app_data/cacheable/${F}
 
