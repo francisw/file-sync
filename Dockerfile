@@ -28,7 +28,7 @@ VOLUME ["/mnt/app_data","/mnt/host/var"]
 HEALTHCHECK --interval=30s \
 	--retries=3 \
 	--timeout=1s \
-	CMD /bin/ture
+	CMD /bin/true
 #	CMD F=.file-sync/sync-check.$RANDOM && \
 #		touch /mnt/host/var/app_data/${F} && \
 #		sleep 1 && \
