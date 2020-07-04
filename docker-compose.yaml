@@ -3,14 +3,113 @@ version: '3'
 services:
   file-sync:
     build: 
-      context: .
+      context: file-sync/ 
     container_name: file-sync 
     image: brcms/file-sync 
     volumes:
-    - /mnt/app_data/:/mnt/app_data
-    - /var:/mnt/host/var
-    restart: always
+     - /mnt/app_data/:/mnt/app_data
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart-policy: 
+        condition: any
+      labels:
+        com.busy-rooms.description: "Mirroring /var/app_data"
+
+  daemon-1:
+    build:
+      context: file-sync-daemon/
+    container_name: file-sync-daemon-1    
     ports:
-    - "9001:9001"
-    - "9002:9002"
-    - "9003:9003"
+      - "9999:9001"
+    environment:
+      ADVERTISE_PORT: 9001
+    image: brcms/file-sync-daemon
+    volumes:
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart-policy: 
+        condition: any
+      labels:
+        com.busy-rooms.description: "Listening on 9001"
+  daemon-2:
+    build:
+      context: file-sync-daemon/
+    container_name: file-sync-daemon-2    
+    ports:
+      - "9999:9002"
+    environment:
+      ADVERTISE_PORT: 9002
+    image: brcms/file-sync-daemon
+    volumes:
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart-policy: 
+        condition: any
+      labels:
+        com.busy-rooms.description: "Listening on 9001"
+  daemon-3:
+    build:
+      context: file-sync-daemon/
+    container_name: file-sync-daemon-3    
+    ports:
+      - "9999:9003"
+    environment:
+      ADVERTISE_PORT: 9003
+    image: brcms/file-sync-daemon
+    volumes:
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart-policy: 
+        condition: any
+      labels:
+        com.busy-rooms.description: "Listening on 9001"
+
+  inter-sync-1:
+    build:
+      context: inter-sync/
+    container_name: inter-sync-1
+    image: brcms/inter-sync
+    volumes:
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart-policy: 
+        condition: on-failure
+      labels:
+        com.busy-rooms.description: "Seeking sibling"
+    logging:
+      driver: syslog
+  inter-sync-2:
+    build:
+      context: inter-sync/
+    container_name: inter-sync-2    
+    image: brcms/inter-sync
+    volumes:
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart-policy: 
+        condition: on-failure
+      labels:
+        com.busy-rooms.description: "Seeking sibling"
+    logging:
+      driver: syslog
+  inter-sync-3:
+    build:
+      context: inter-sync/
+    container_name: inter-sync-3    
+    image: brcms/inter-sync
+    volumes:
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart-policy: 
+        condition: on-failure
+      labels:
+        com.busy-rooms.description: "Seeking sibling"
+    logging:
+      driver: syslog

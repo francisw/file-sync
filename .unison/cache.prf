@@ -1,6 +1,0 @@
-root = /mnt/app_data
-root = /mnt/cache/app_data
-
-ignore = Name lost+found
-prefer = newer
-repeat = watch
