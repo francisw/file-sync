@@ -1,0 +1,4 @@
+
+ignore = Name lost+found
+prefer = newer
+repeat = watch

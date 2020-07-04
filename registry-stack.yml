@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  registry:
+    image: registry
+    volumes:
+     - /mnt/app_data/.registry:/mnt/app_data
+    ports:
+     - 5000:5000
+    networks:
+     - default
+    deploy:
+      mode: global
+      labels:
+        com.busy-rooms.description: "Swarm Docker Image Repository"
+
+networks:
+  default:
+    external:
+      name: swarm-net
+
