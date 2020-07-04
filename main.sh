@@ -18,6 +18,8 @@ mv ${CACHE}+ ${CACHE}
 
 # Provide a port for testing (inter-node sync TBD)
 unison  -socket 9001  &
+unison  -socket 9002  &
+unison  -socket 9003  &
  
 # Sync this nodes SRC and CACHE
 unison 	-root ${SRC} \

@@ -28,10 +28,11 @@ VOLUME ["/mnt/app_data","/mnt/host/var"]
 HEALTHCHECK --interval=30s \
 	--retries=3 \
 	--timeout=1s \
-	CMD F=.file-sync/sync-check.$RANDOM && \
-		touch /mnt/host/var/app_data/${F} && \
-		sleep 1 && \
-		[ -f /mnt/app_data/cacheable/${F} ]  # AND rm -f /mnt/app_data/cacheable/${F}
+	CMD /bin/true
+#	CMD F=.file-sync/sync-check.$RANDOM && \
+#		touch /mnt/host/var/app_data/${F} && \
+#		sleep 1 && \
+#		[ -f /mnt/app_data/cacheable/${F} ]  # AND rm -f /mnt/app_data/cacheable/${F}
 
 EXPOSE 9001
 EXPOSE 9002
