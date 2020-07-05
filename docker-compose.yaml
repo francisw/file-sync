@@ -11,7 +11,7 @@ services:
      - /var:/mnt/host/var
     deploy:
       mode: global
-      restart-policy: 
+      restart_policy: 
         condition: any
       labels:
         com.busy-rooms.description: "Mirroring /var/app_data"
@@ -29,7 +29,7 @@ services:
      - /var:/mnt/host/var
     deploy:
       mode: global
-      restart-policy: 
+      restart_policy: 
         condition: any
       labels:
         com.busy-rooms.description: "Listening on 9001"
@@ -46,7 +46,7 @@ services:
      - /var:/mnt/host/var
     deploy:
       mode: global
-      restart-policy: 
+      restart_policy: 
         condition: any
       labels:
         com.busy-rooms.description: "Listening on 9001"
@@ -63,7 +63,7 @@ services:
      - /var:/mnt/host/var
     deploy:
       mode: global
-      restart-policy: 
+      restart_policy: 
         condition: any
       labels:
         com.busy-rooms.description: "Listening on 9001"
@@ -77,7 +77,7 @@ services:
      - /var:/mnt/host/var
     deploy:
       mode: global
-      restart-policy: 
+      restart_policy: 
         condition: on-failure
       labels:
         com.busy-rooms.description: "Seeking sibling"
@@ -92,7 +92,7 @@ services:
      - /var:/mnt/host/var
     deploy:
       mode: global
-      restart-policy: 
+      restart_policy: 
         condition: on-failure
       labels:
         com.busy-rooms.description: "Seeking sibling"
@@ -107,7 +107,7 @@ services:
      - /var:/mnt/host/var
     deploy:
       mode: global
-      restart-policy: 
+      restart_policy: 
         condition: on-failure
       labels:
         com.busy-rooms.description: "Seeking sibling"
