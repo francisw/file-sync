@@ -2,7 +2,7 @@ version: '3'
 
 services:
   registry:
-    image: registry
+    image: swarm-manager:5000/brcms/registry
     volumes:
      - /mnt/app_data/.registry:/mnt/app_data
     ports:
@@ -10,7 +10,7 @@ services:
     networks:
      - default
     deploy:
-      mode: global
+      replicas: 1
       labels:
         com.busy-rooms.description: "Swarm Docker Image Repository"
 

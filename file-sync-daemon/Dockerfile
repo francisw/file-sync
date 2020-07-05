@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM brcms/unison
 
 ARG UNISON_VERSION=2.51.2
 

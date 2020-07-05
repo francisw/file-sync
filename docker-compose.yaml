@@ -5,7 +5,7 @@ services:
     build: 
       context: file-sync/ 
     container_name: file-sync 
-    image: brcms/file-sync 
+    image: swarm-manager:5000/brcms/file-sync 
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
@@ -24,7 +24,7 @@ services:
             - "9001:9999"
     environment:
       ADVERTISE_PORT: 9001
-    image: brcms/file-sync-daemon
+    image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
      - /var:/mnt/host/var
     deploy:
@@ -41,7 +41,7 @@ services:
             - "9002:9999"
     environment:
       ADVERTISE_PORT: 9002
-    image: brcms/file-sync-daemon
+    image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
      - /var:/mnt/host/var
     deploy:
@@ -58,7 +58,7 @@ services:
             - "9003:9999"
     environment:
       ADVERTISE_PORT: 9003
-    image: brcms/file-sync-daemon
+    image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
      - /var:/mnt/host/var
     deploy:
@@ -72,7 +72,7 @@ services:
     build:
       context: inter-sync/
     container_name: inter-sync-1
-    image: brcms/inter-sync
+    image: swarm-manager:5000/brcms/inter-sync
     volumes:
      - /var:/mnt/host/var
     deploy:
@@ -87,7 +87,7 @@ services:
     build:
       context: inter-sync/
     container_name: inter-sync-2    
-    image: brcms/inter-sync
+    image: swarm-manager:5000/brcms/inter-sync
     volumes:
      - /var:/mnt/host/var
     deploy:
@@ -102,7 +102,7 @@ services:
     build:
       context: inter-sync/
     container_name: inter-sync-3    
-    image: brcms/inter-sync
+    image: swarm-manager:5000/brcms/inter-sync
     volumes:
      - /var:/mnt/host/var
     deploy:
