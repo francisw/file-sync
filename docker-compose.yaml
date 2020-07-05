@@ -21,7 +21,7 @@ services:
       context: file-sync-daemon/
     container_name: file-sync-daemon-1    
     ports:
-      - "9999:9001"
+            - "9001:9999"
     environment:
       ADVERTISE_PORT: 9001
     image: brcms/file-sync-daemon
@@ -38,7 +38,7 @@ services:
       context: file-sync-daemon/
     container_name: file-sync-daemon-2    
     ports:
-      - "9999:9002"
+            - "9002:9999"
     environment:
       ADVERTISE_PORT: 9002
     image: brcms/file-sync-daemon
@@ -55,7 +55,7 @@ services:
       context: file-sync-daemon/
     container_name: file-sync-daemon-3    
     ports:
-      - "9999:9003"
+            - "9003:9999"
     environment:
       ADVERTISE_PORT: 9003
     image: brcms/file-sync-daemon
