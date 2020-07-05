@@ -1,4 +1,4 @@
-FROM brcms/unison
+FROM swarm-manager:5000/brcms/unison
 
 COPY ./main.sh /opt/bin/
 
