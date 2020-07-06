@@ -17,11 +17,6 @@ RUN apk add --update build-base curl bash ocaml && \
     rm -rf /var/cache/apk/* && \
     rm -rf /tmp/unison-${UNISON_VERSION}
 
-COPY .unison /root/.unison
-
-VOLUME ["/mnt/host/var"]
-WORKDIR /mnt/host/var/app_data
-
 EXPOSE 9999
 
 CMD ["/usr/local/bin/unison","-socket","9999"]

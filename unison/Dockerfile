@@ -17,5 +17,8 @@ RUN apk add --update build-base curl bash ocaml && \
     rm -rf /var/cache/apk/* && \
     rm -rf /tmp/unison-${UNISON_VERSION}
 
+VOLUME ["/mnt/host/var"]
+
+WORKDIR /mnt/host/var
 COPY .unison /root/.unison
 

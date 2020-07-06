@@ -2,9 +2,6 @@ FROM swarm-manager:5000/brcms/unison
 
 # USER nginx:nginx
 COPY ./main.sh /opt/bin/
-COPY .unison /root/.unison
-
-VOLUME ["/mnt/host/var"]
 
 # Healcheck writes a file to cache and then removes the same file 
 # from shared storagte 1s later
