@@ -1,0 +1,79 @@
+version: '3'
+
+services:
+  inter-sync-1:
+    extra_hosts:
+      - "node-1: 10.156.0.2"
+      - "node-2: 10.156.0.3"
+      - "node-3: 10.156.0.4"
+      - "node-4: 10.156.0.5"
+    build:
+      context: inter-sync/
+    container_name: inter-sync-1
+    image: swarm-manager:5000/brcms/inter-sync
+    volumes:
+     - /mnt/app_data/:/mnt/app_data
+     - /var:/mnt/host/var
+    environment:
+      NODENAME: '{{.Node.Hostname}}'
+    deploy:
+      mode: global
+      restart_policy: 
+        condition: on-failure
+      labels:
+        com.busy-rooms.description: "Seeking sibling"
+    networks:
+      - default
+  inter-sync-2:
+    extra_hosts:
+      - "node-1: 10.156.0.2"
+      - "node-2: 10.156.0.3"
+      - "node-3: 10.156.0.4"
+      - "node-4: 10.156.0.5"
+    build:
+      context: inter-sync/
+    container_name: inter-sync-2    
+    image: swarm-manager:5000/brcms/inter-sync
+    volumes:
+     - /mnt/app_data/:/mnt/app_data
+     - /var:/mnt/host/var
+    environment:
+      NODENAME: '{{.Node.Hostname}}'
+    deploy:
+      mode: global
+      restart_policy: 
+        condition: on-failure
+      labels:
+        com.busy-rooms.description: "Seeking sibling"
+    networks:
+      - default
+  inter-sync-3:
+    extra_hosts:
+      - "node-1: 10.156.0.2"
+      - "node-2: 10.156.0.3"
+      - "node-3: 10.156.0.4"
+      - "node-4: 10.156.0.5"
+    build:
+      context: inter-sync/
+    container_name: inter-sync-3    
+    image: swarm-manager:5000/brcms/inter-sync
+    volumes:
+     - /mnt/app_data/:/mnt/app_data
+     - /var:/mnt/host/var
+    environment:
+      NODENAME: '{{.Node.Hostname}}'
+    deploy:
+      mode: global
+      restart_policy: 
+        condition: on-failure
+      labels:
+        com.busy-rooms.description: "Seeking sibling"
+    networks:
+      - default
+
+
+networks:
+  default:
+    external:
+      name: swarm-net
+

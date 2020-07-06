@@ -14,10 +14,10 @@ cp -rp ${SRC} ${CACHE}+
 [ -d ${CACHE}- ] && rm -rf ${CACHE}-
 [ -d ${CACHE} ] && mv ${CACHE} ${CACHE}-
 mv ${CACHE}+ ${CACHE}
-[ -d ${CACHE}- ] && rm -rf ${CACHE}-
 
 # Sync this nodes SRC and CACHE
-unison 	-root ${SRC} \
+exec unison 	\
+	-root ${SRC} \
 	-root ${CACHE} \
 	-repeat watch \
 	-prefer newer  

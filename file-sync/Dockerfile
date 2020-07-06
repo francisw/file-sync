@@ -1,8 +1,6 @@
 FROM swarm-manager:5000/brcms/unison
 
-COPY ./main.sh /opt/bin/
-
-VOLUME ["/mnt/app_data"]
+COPY ./*.sh /opt/bin/
 
 # Healcheck writes a file to cache and then removes the same file 
 # from shared storagte 1s later

@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+  daemon-1:
+    build:
+      context: file-sync-daemon/
+    container_name: file-sync-daemon-1    
+    ports:
+            - "9001:9999"
+    environment:
+      ADVERTISE_PORT: 9001
+      NODENAME: '${HOSTNAME}'
+    image: swarm-manager:5000/brcms/file-sync-daemon
+    volumes:
+     - /mnt/app_data/:/mnt/app_data
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart_policy: 
+        condition: any
+      labels:
+        com.busy-rooms.description: "Listening on 9001"
+    networks:
+      - default
+  daemon-2:
+    build:
+      context: file-sync-daemon/
+    container_name: file-sync-daemon-2    
+    ports:
+      - "9002:9999"
+    environment:
+      ADVERTISE_PORT: 9002
+      NODENAME: '${HOSTNAME}'
+    image: swarm-manager:5000/brcms/file-sync-daemon
+    volumes:
+      - /mnt/app_data/:/mnt/app_data
+      - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart_policy: 
+        condition: any
+      labels:
+        com.busy-rooms.description: "Listening on 9001"
+    networks:
+      - default
+  daemon-3:
+    build:
+      context: file-sync-daemon/
+    container_name: file-sync-daemon-3    
+    ports:
+            - "9003:9999"
+    environment:
+      ADVERTISE_PORT: 9003
+      NODENAME: '${HOSTNAME}'
+    image: swarm-manager:5000/brcms/file-sync-daemon
+    volumes:
+     - /mnt/app_data/:/mnt/app_data
+     - /var:/mnt/host/var
+    deploy:
+      mode: global
+      restart_policy: 
+        condition: any
+      labels:
+        com.busy-rooms.description: "Listening on 9001"
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: swarm-net
+

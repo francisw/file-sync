@@ -1,9 +1,33 @@
 #!/bin/bash
 
-cd app_data/.file-sync
+SRC=/mnt/app_data/cacheable
+CACHE=/mnt/host/var/app_data
 
-AVAILABLE=`ls advertised`
+cd /mnt/app_data/cacheable/.file-sync
 
-sleep 600
+# Spec is {node}/{port}
+# Cleanup old
+# find * -type f -mmin +5 -exec rm -f {} +
 
-exit 0
+[ -z $NODENAME ] && echo "NODENAME env required" && exit 1
+
+# Get all adverts not from this node
+ADVERTS=(`ls */* | grep -v $NODENAME`)
+[ ${#ADVERTS[@]} -eq 0 ] && exit 0
+
+# Remove the advert and reformat from nodname/portnumber to nodename:portnumber
+rm ${ADVERTS[0]}
+TARGET=${ADVERTS[0]//[\/]/:}
+echo ${NODENAME} >> .${TARGET} 
+echo "${NODENAME} taking advertised ${TARGET}" >&2
+
+unison 	\
+	-root ${TARGET}${SRC} \
+	-root ${CACHE} \
+	-killserver \
+	-repeat watch \
+	-prefer newer  
+
+$EXITCODE=$?
+rm -f .${TARGET}
+exit $EXITCODE

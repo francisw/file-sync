@@ -5,12 +5,12 @@ services:
     build: 
       context: file-sync/ 
     container_name: file-sync 
-    image: swarm-manager:5000/brcms/file-sync
+    image: swarm-manager:5000/brcms/file-sync 
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
     environment:
-      NODENAME: '${HOSTNAME}'
+      NODENAME: '{{.Node.Hostname}}'
     deploy:
       mode: global
       restart_policy: 
@@ -20,15 +20,15 @@ services:
     networks:
       - default
 
-  file-sync-daemon-1:
+  daemon-1:
     build:
       context: file-sync-daemon/
     container_name: file-sync-daemon-1    
     ports:
             - "9001:9999"
     environment:
-      NODENAME: '${HOSTNAME}'
       ADVERTISE_PORT: 9001
+      NODENAME: '{{.Node.Hostname}}'
     image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
      - /mnt/app_data/:/mnt/app_data
@@ -41,10 +41,7 @@ services:
         com.busy-rooms.description: "Listening on 9001"
     networks:
       - default
-    depends_on: 
-     - "file-sync"
-    command: ["./wait-for-file-sync.sh","./main.sh"]
-  file-sync-daemon-2:
+  daemon-2:
     build:
       context: file-sync-daemon/
     container_name: file-sync-daemon-2    
@@ -52,7 +49,7 @@ services:
       - "9002:9999"
     environment:
       ADVERTISE_PORT: 9002
-      NODENAME: '${HOSTNAME}'
+      NODENAME: '{{.Node.Hostname}}'
     image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
       - /mnt/app_data/:/mnt/app_data
@@ -65,7 +62,7 @@ services:
         com.busy-rooms.description: "Listening on 9001"
     networks:
       - default
-  file-sync-daemon-3:
+  daemon-3:
     build:
       context: file-sync-daemon/
     container_name: file-sync-daemon-3    
@@ -73,7 +70,7 @@ services:
             - "9003:9999"
     environment:
       ADVERTISE_PORT: 9003
-      NODENAME: '${HOSTNAME}'
+      NODENAME: '{{.Node.Hostname}}'
     image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
      - /mnt/app_data/:/mnt/app_data
@@ -101,7 +98,7 @@ services:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
     environment:
-      NODENAME: '${HOSTNAME}'
+      NODENAME: '{{.Node.Hostname}}'
     deploy:
       mode: global
       restart_policy: 
@@ -126,7 +123,7 @@ services:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
     environment:
-      NODENAME: '${HOSTNAME}'
+      NODENAME: '{{.Node.Hostname}}'
     deploy:
       mode: global
       restart_policy: 
@@ -151,7 +148,7 @@ services:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
     environment:
-      NODENAME: '${HOSTNAME}'
+      NODENAME: '{{.Node.Hostname}}'
     deploy:
       mode: global
       restart_policy: 
