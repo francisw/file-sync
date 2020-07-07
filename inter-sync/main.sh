@@ -24,13 +24,19 @@ TARGET=${ADVERTS[0]//[\/]/:}
 echo ${NODENAME} >> .${TARGET} 
 echo "${NODENAME} taking advertised ${TARGET}" >&2
 
+echo unison 	\
+	-root ${TARGET}/${CACHE} \
+	-root ${CACHE} \
+	-killserver \
+	-repeat watch \
+	-prefer newer  
 unison 	\
-	-root ${TARGET}${SRC} \
+	-root ${TARGET}/${CACHE} \
 	-root ${CACHE} \
 	-killserver \
 	-repeat watch \
 	-prefer newer  
 
-$EXITCODE=$?
+EXITCODE=$?
 rm -f .${TARGET}
 exit $EXITCODE
