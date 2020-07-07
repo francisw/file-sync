@@ -4,9 +4,11 @@ SRC=/mnt/app_data/cacheable/.file-sync
 CACHE=/mnt/host/var/app_data/.file-sync
 
 [ -z $NODENAME ] && echo "NODENAME env required" && exit 1
-[ ! -d $NODENAME ] && mkdir $NODENAME
+[ ! -d ${SRC}/${NODENAME} ] && mkdir ${SRC}/${NODENAME}
 
-PROBE=$NODENAME/.$$.${RANDOM}
+RANDOM=$(date +%s)
+
+PROBE=$NODENAME/.${RANDOM}-${RANDOM}
 echo > ${SRC}/${PROBE}
 until [ -f ${CACHE}/${PROBE} ]; do
 	>&2 echo "Waiting for file-sync - sleeping"
