@@ -65,6 +65,9 @@ services:
         com.busy-rooms.description: "Listening on 9001"
     networks:
       - default
+    depends_on: 
+     - "file-sync"
+    command: ["./wait-for-file-sync.sh","./main.sh"]
   file-sync-daemon-3:
     build:
       context: file-sync-daemon/
@@ -86,6 +89,9 @@ services:
         com.busy-rooms.description: "Listening on 9001"
     networks:
       - default
+    depends_on: 
+     - "file-sync"
+    command: ["./wait-for-file-sync.sh","./main.sh"]
 
   inter-sync-1:
     extra_hosts:
