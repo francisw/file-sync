@@ -13,7 +13,10 @@ cd /mnt/app_data/cacheable/.file-sync
 
 # Get all adverts not from this node
 ADVERTS=(`ls */* | grep -v $NODENAME`)
-[ ${#ADVERTS[@]} -eq 0 ] && exit 0
+if [ ${#ADVERTS[@]} -eq 0 ]; then
+	>&2 echo "No Daemon node advert(s) found"
+	exit 0
+fi
 
 # Remove the advert and reformat from nodname/portnumber to nodename:portnumber
 rm ${ADVERTS[0]}

@@ -25,10 +25,10 @@ services:
       context: file-sync-daemon/
     container_name: file-sync-daemon-1    
     ports:
-            - "9001:9999"
+            - "9991:9999"
     environment:
       NODENAME: '${HOSTNAME}'
-      ADVERTISE_PORT: 9001
+      ADVERTISE_PORT: 9991
     image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
      - /mnt/app_data/:/mnt/app_data
@@ -38,7 +38,7 @@ services:
       restart_policy: 
         condition: any
       labels:
-        com.busy-rooms.description: "Listening on 9001"
+        com.busy-rooms.description: "Listening on 9991"
     networks:
       - default
     depends_on: 
@@ -49,9 +49,9 @@ services:
       context: file-sync-daemon/
     container_name: file-sync-daemon-2    
     ports:
-      - "9002:9999"
+      - "9992:9999"
     environment:
-      ADVERTISE_PORT: 9002
+      ADVERTISE_PORT: 9992
       NODENAME: '${HOSTNAME}'
     image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
@@ -62,7 +62,7 @@ services:
       restart_policy: 
         condition: any
       labels:
-        com.busy-rooms.description: "Listening on 9001"
+        com.busy-rooms.description: "Listening on 9992"
     networks:
       - default
     depends_on: 
@@ -73,9 +73,9 @@ services:
       context: file-sync-daemon/
     container_name: file-sync-daemon-3    
     ports:
-            - "9003:9999"
+            - "9993:9999"
     environment:
-      ADVERTISE_PORT: 9003
+      ADVERTISE_PORT: 9993
       NODENAME: '${HOSTNAME}'
     image: swarm-manager:5000/brcms/file-sync-daemon
     volumes:
@@ -86,7 +86,7 @@ services:
       restart_policy: 
         condition: any
       labels:
-        com.busy-rooms.description: "Listening on 9001"
+        com.busy-rooms.description: "Listening on 9993"
     networks:
       - default
     depends_on: 
@@ -114,10 +114,11 @@ services:
         condition: on-failure
       labels:
         com.busy-rooms.description: "Seeking sibling"
-    logging:
-      driver: syslog
     networks:
       - default
+    depends_on: 
+     - "file-sync"
+    command: ["./wait-for-file-sync.sh","./main.sh"]
   inter-sync-2:
     extra_hosts:
       - "node-1: 10.156.0.2"
@@ -139,10 +140,11 @@ services:
         condition: on-failure
       labels:
         com.busy-rooms.description: "Seeking sibling"
-    logging:
-      driver: syslog
     networks:
       - default
+    depends_on: 
+     - "file-sync"
+    command: ["./wait-for-file-sync.sh","./main.sh"]
   inter-sync-3:
     extra_hosts:
       - "node-1: 10.156.0.2"
@@ -164,10 +166,11 @@ services:
         condition: on-failure
       labels:
         com.busy-rooms.description: "Seeking sibling"
-    logging:
-      driver: syslog
     networks:
       - default
+    depends_on: 
+     - "file-sync"
+    command: ["./wait-for-file-sync.sh","./main.sh"]
 
 
 networks:
