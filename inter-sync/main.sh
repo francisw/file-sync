@@ -25,13 +25,13 @@ echo ${NODENAME} >> .${TARGET}
 echo "${NODENAME} taking advertised ${TARGET}" >&2
 
 echo unison 	\
-	-root ${TARGET}/${CACHE} \
+	-root ${TARGET}${CACHE} \
 	-root ${CACHE} \
 	-killserver \
 	-repeat watch \
 	-prefer newer  
 unison 	\
-	-root ${TARGET}/${CACHE} \
+	-root ${TARGET}${CACHE} \
 	-root ${CACHE} \
 	-killserver \
 	-repeat watch \
