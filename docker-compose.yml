@@ -95,10 +95,10 @@ services:
 
   inter-sync-1:
     extra_hosts:
-      - "node-1: 10.156.0.2"
-      - "node-2: 10.156.0.3"
-      - "node-3: 10.156.0.4"
-      - "node-4: 10.156.0.5"
+      - "node-1:10.156.0.2"
+      - "node-2:10.156.0.3"
+      - "node-3:10.156.0.4"
+      - "node-4:10.156.0.5"
     build:
       context: inter-sync/
     container_name: inter-sync-1
@@ -121,10 +121,10 @@ services:
     command: ["./wait-for-file-sync.sh","./main.sh"]
   inter-sync-2:
     extra_hosts:
-      - "node-1: 10.156.0.2"
-      - "node-2: 10.156.0.3"
-      - "node-3: 10.156.0.4"
-      - "node-4: 10.156.0.5"
+      - "node-1:10.156.0.2"
+      - "node-2:10.156.0.3"
+      - "node-3:10.156.0.4"
+      - "node-4:10.156.0.5"
     build:
       context: inter-sync/
     container_name: inter-sync-2    
@@ -147,10 +147,10 @@ services:
     command: ["./wait-for-file-sync.sh","./main.sh"]
   inter-sync-3:
     extra_hosts:
-      - "node-1: 10.156.0.2"
-      - "node-2: 10.156.0.3"
-      - "node-3: 10.156.0.4"
-      - "node-4: 10.156.0.5"
+      - "node-1:10.156.0.2"
+      - "node-2:10.156.0.3"
+      - "node-3:10.156.0.4"
+      - "node-4:10.156.0.5"
     build:
       context: inter-sync/
     container_name: inter-sync-3    
