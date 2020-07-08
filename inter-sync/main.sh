@@ -25,13 +25,13 @@ echo ${NODENAME} >> .${TARGET}  # so we have some record of who is synching with
 echo "${NODENAME} taking advertised ${TARGET}" >&2
 
 echo unison 	\
-	-root socket://${TARGET}${CACHE} \
+	-root socket://${TARGET}/ \
 	-root ${CACHE} \
 	-killserver \
 	-repeat watch \
 	-prefer newer  
 unison 	\
-	-root socket://${TARGET}${CACHE} \
+	-root socket://${TARGET}/ \
 	-root ${CACHE} \
 	-killserver \
 	-repeat watch \
