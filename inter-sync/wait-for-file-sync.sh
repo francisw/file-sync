@@ -4,10 +4,10 @@ SRC=/mnt/app_data/cacheable/.file-sync
 CACHE=/mnt/host/var/app_data/.file-sync
 
 [ -z $NODENAME ] && echo "NODENAME env required" && exit 1
-[ ! -d ${SRC}/${NODENAME} ] && mkdir ${SRC}/${NODENAME}
 
 RANDOM=$(date +%N)
-PROBE=$NODENAME.${RANDOM}
+ALTRANDOM=$(date +%s)
+PROBE=$NODENAME.${RANDOM}.${ALTRANDOM}
 
 echo > ${SRC}/${PROBE}
 until [ -f ${CACHE}/${PROBE} ]; do

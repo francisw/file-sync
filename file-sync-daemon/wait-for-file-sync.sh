@@ -5,7 +5,13 @@ CACHE=/mnt/host/var/app_data/.file-sync
 
 [ -z $NODENAME ] && echo "NODENAME env required" && exit 1
 [ -z $ADVERTISE_PORT ] && echo "ADVERTISE_PORT env required" && exit 1
-[ ! -d ${SRC}/$NODENAME ] && mkdir ${SRC}/$NODENAME
+
+# Setup folders
+# ./adverts/${NODENAME}
+# ./contracts/${NODENAME}
+[ ! -d ${SRC}/adverts/${NODENAME} -o ! -d ${SRC}/contracts/${NODENAME} ] && \
+	mkdir -p ${SRC}/adverts/${NODENAME} ${SRC}/contracts/${NODENAME} && \
+	chmod a+rwx ${SRC}/*/${NODENAME} 
 
 PROBE=$NODENAME.${ADVERTISE_PORT}
 echo > ${SRC}/${PROBE}
