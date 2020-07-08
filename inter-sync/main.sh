@@ -21,17 +21,17 @@ fi
 # Remove the advert and reformat from nodname/portnumber to nodename:portnumber
 rm ${ADVERTS[0]}
 TARGET=${ADVERTS[0]//[\/]/:}
-echo ${NODENAME} >> .${TARGET} 
+echo ${NODENAME} >> .${TARGET}  # so we have some record of who is synching with whom
 echo "${NODENAME} taking advertised ${TARGET}" >&2
 
 echo unison 	\
-	-root ${TARGET}${CACHE} \
+	-root socket://${TARGET}${CACHE} \
 	-root ${CACHE} \
 	-killserver \
 	-repeat watch \
 	-prefer newer  
 unison 	\
-	-root ${TARGET}${CACHE} \
+	-root socket://${TARGET}${CACHE} \
 	-root ${CACHE} \
 	-killserver \
 	-repeat watch \
