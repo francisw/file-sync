@@ -43,7 +43,7 @@ services:
       - default
     depends_on: 
      - "file-sync"
-    command: ["./wait-for-file-sync.sh","./main.sh"]
+    command: ["/opt/bin/wait-for-file-sync.sh","/opt/bin/main.sh"]
   file-sync-daemon-2:
     build:
       context: file-sync-daemon/
@@ -67,7 +67,7 @@ services:
       - default
     depends_on: 
      - "file-sync"
-    command: ["./wait-for-file-sync.sh","./main.sh"]
+    command: ["/opt/bin/wait-for-file-sync.sh","/opt/bin/main.sh"]
   file-sync-daemon-3:
     build:
       context: file-sync-daemon/
@@ -91,7 +91,7 @@ services:
       - default
     depends_on: 
      - "file-sync"
-    command: ["./wait-for-file-sync.sh","./main.sh"]
+    command: ["/opt/bin/wait-for-file-sync.sh","/opt/bin/main.sh"]
 
   inter-sync-1:
     extra_hosts:
@@ -118,7 +118,7 @@ services:
       - default
     depends_on: 
      - "file-sync"
-    command: ["./wait-for-file-sync.sh","./main.sh"]
+    command: ["/opt/bin/wait-for-file-sync.sh","/opt/bin/main.sh"]
   inter-sync-2:
     extra_hosts:
       - "node-1:10.156.0.2"
@@ -144,7 +144,7 @@ services:
       - default
     depends_on: 
      - "file-sync"
-    command: ["./wait-for-file-sync.sh","./main.sh"]
+    command: ["/opt/bin/wait-for-file-sync.sh","/opt/bin/main.sh"]
   inter-sync-3:
     extra_hosts:
       - "node-1:10.156.0.2"
@@ -170,7 +170,7 @@ services:
       - default
     depends_on: 
      - "file-sync"
-    command: ["./wait-for-file-sync.sh","./main.sh"]
+    command: ["/opt/bin/wait-for-file-sync.sh","/opt/bin/main.sh"]
 
 
 networks:
