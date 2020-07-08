@@ -6,9 +6,9 @@ CACHE=/mnt/host/var/app_data/.file-sync
 [ -z $NODENAME ] && echo "NODENAME env required" && exit 1
 [ ! -d ${SRC}/${NODENAME} ] && mkdir ${SRC}/${NODENAME}
 
-RANDOM=$(date +%s)
+RANDOM=$(date +%N)
+PROBE=$NODENAME.${RANDOM}
 
-PROBE=$NODENAME/.${RANDOM}-${RANDOM}
 echo > ${SRC}/${PROBE}
 until [ -f ${CACHE}/${PROBE} ]; do
 	>&2 echo "Waiting for file-sync - sleeping"

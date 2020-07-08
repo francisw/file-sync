@@ -7,7 +7,7 @@ CACHE=/mnt/host/var/app_data/.file-sync
 [ -z $ADVERTISE_PORT ] && echo "ADVERTISE_PORT env required" && exit 1
 [ ! -d ${SRC}/$NODENAME ] && mkdir ${SRC}/$NODENAME
 
-PROBE=$NODENAME/.${ADVERTISE_PORT}
+PROBE=$NODENAME.${ADVERTISE_PORT}
 echo > ${SRC}/${PROBE}
 until [ -f ${CACHE}/${PROBE} ]; do
 	>&2 echo "Waiting for file-sync - sleeping"

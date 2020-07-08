@@ -11,12 +11,14 @@ cd /mnt/app_data/cacheable/.file-sync
 
 [ -z $NODENAME ] && echo "NODENAME env required" && exit 1
 
-# We don't want adverts from this node, or nodes that this node is bound to already
-# Each other advert taken by this node is stored in {ThisNode}/.{ConnectedNode}
-IGNORE=(`ls -d ${NODENAME}/.*`)
-
+# We don't want adverts from this node, or other nodes that this node is already contracted to
+# Each advert is stored in adverts/{AdvertisingNode}/{AdvertisingPort}
+# Each contract already taken by this node is stored in contracts/{ThisNode}/{ConnectedNode} and the file contains the connectedPort
+IGNORE=(`ls contracts/${NODENAME}`)
+IGNORE+=(${NODENAME})
+IGNORE_LIST=${IGNORE[*]//\s/\|}
 # Get all adverts not from this node
-ADVERTS=(`ls */* | grep -v $NODENAME`)
+ADVERTS=(`ls */* | grep -v ${IGNORE_LIST}`)
 if [ ${#ADVERTS[@]} -eq 0 ]; then
 	>&2 echo "No Daemon node advert(s) found"
 	exit 0
@@ -29,8 +31,8 @@ ADVERTISED_NODE=${ADVERT[0]}
 ADVERTISED_PORT=${ADVERT[1]}
 
 TARGET="${ADVERTISED_NODE}:${ADVERTISED_PORT}"
-ADVERT_TAKEN="${NODENAME}/.${ADVERTISED_NODE}"  # Filename to announce what we are doing, so we have some record of who is synching with whom
-echo ${ADVERTISED_PORT} > ${ADVERT_TAKEN}  	# so we have some record of who is synching with whom
+CONTRACT="contracts/${NODENAME}/${ADVERTISED_NODE}"  # Filename to announce what we are doing, so we have some record of who is synching with whom
+echo ${ADVERTISED_PORT} > ${CONTRACT}  	# so we have some record of who is synching with whom
 echo "${NODENAME} taking advertised ${TARGET}" >&2
 
 echo unison 	\
@@ -47,5 +49,5 @@ unison 	\
 	-prefer newer  
 
 EXITCODE=$?
-rm -f ${ADVERT_TAKEN}
+rm -f ${CONTRACT}
 exit $EXITCODE
