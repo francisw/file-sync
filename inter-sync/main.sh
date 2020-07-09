@@ -48,12 +48,16 @@ echo unison 	\
 	-root socket://${TARGET}/ \
 	-root ${CACHE} \
 	-killserver \
+	-batch \
+	-group -owner -times \
 	-repeat watch \
 	-prefer newer  
 unison 	\
 	-root socket://${TARGET}/ \
 	-root ${CACHE} \
 	-killserver \
+	-batch \
+	-group -owner -times \
 	-repeat watch \
 	-prefer newer  
 
