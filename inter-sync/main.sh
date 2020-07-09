@@ -29,7 +29,7 @@ IGNORE+=(${NODENAME})
 function implode { local IFS="$1"; shift; echo "$*"; }
 IGNORE_LIST=`implode '|' "${IGNORE[@]}"` 
 # Get all adverts not from this node
-ADVERTS=(`ls adverts/*/* | grep -v ${IGNORE_LIST}`)
+ADVERTS=(`ls adverts/*/* | egrep -v "${IGNORE_LIST}"`)
 if [ ${#ADVERTS[@]} -eq 0 ]; then
 	>&2 echo "No Daemon node advert(s) found"
 	exit 0
