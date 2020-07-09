@@ -9,7 +9,7 @@ services:
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
-    user: "nginx:nginx"
+    user: "root"
     environment:
       NODENAME: '${HOSTNAME}'
     deploy:

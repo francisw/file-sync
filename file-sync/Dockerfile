@@ -1,5 +1,7 @@
 FROM swarm-manager:5000/brcms/unison
 
+RUN apk add --no-cache su-exec
+
 COPY ./*.sh /opt/bin/
 WORKDIR /opt/bin
 
@@ -14,4 +16,4 @@ HEALTHCHECK --interval=30s \
 #		sleep 1 && \
 #		[ -f /mnt/app_data/cacheable/${F} ]  # AND rm -f /mnt/app_data/cacheable/${F}
 
-CMD ["/opt/bin/main.sh"]
+CMD ["/opt/bin/wait-for-clean-copy.sh","/opt/bin/main.sh"]

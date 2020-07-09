@@ -5,6 +5,7 @@ SRC=/mnt/app_data/cacheable
 CACHE=/mnt/host/var/app_data
 
 cd /mnt/app_data/.file-sync
+[ $? -ne 0 ] && ls -l /mnt
 
 # Advert spec is {node}/{port}
 # Idea for a Cleanup old if healtcheck refreshes the advert_taken files
