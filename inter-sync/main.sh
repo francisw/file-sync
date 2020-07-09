@@ -24,7 +24,8 @@ cd /mnt/app_data/cacheable/.file-sync
 # Each contract already taken by this node is stored in contracts/{ThisNode}/{ConnectedNode} and the file contains the connectedPort
 IGNORE=(`ls contracts/${NODENAME}`)
 IGNORE+=(${NODENAME})
-IGNORE_LIST=${IGNORE[*]//\s/\|}
+function implode { local IFS="$1"; shift; echo "$*"; }
+IGNORE_LIST=`implode '|' "${IGNORE[@]}"` 
 # Get all adverts not from this node
 ADVERTS=(`ls adverts/*/* | grep -v ${IGNORE_LIST}`)
 if [ ${#ADVERTS[@]} -eq 0 ]; then
@@ -34,9 +35,9 @@ fi
 
 # Remove the advert so nobody else takes it, and reformat from nodename/portnumber to nodename:portnumber
 rm ${ADVERTS[0]}				# ${ADVERTS[0]} = "AdvertisedNode/AdvertisedPort"
-IFS='/' read -ra ADVERT <<< "${ADVERTS[0]}" 	# $ADVERT = Array( AdvertisedNode, AdvertisedPort )
-ADVERTISED_NODE=${ADVERT[0]}
-ADVERTISED_PORT=${ADVERT[1]}
+IFS='/' read -ra ADVERT <<< "${ADVERTS[0]}" 	# $ADVERT = Array( 'adverts', AdvertisedNode, AdvertisedPort )
+ADVERTISED_NODE=${ADVERT[1]}
+ADVERTISED_PORT=${ADVERT[2]}
 
 TARGET="${ADVERTISED_NODE}:${ADVERTISED_PORT}"
 CONTRACT="contracts/${NODENAME}/${ADVERTISED_NODE}"  # Filename to announce what we are doing, so we have some record of who is synching with whom
