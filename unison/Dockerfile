@@ -4,7 +4,7 @@ ARG UNISON_VERSION=2.51.2
 
 # Install in one run so that build tools won't remain in any docker layers
 # Install build tools
-RUN apk add --update build-base curl bash ocaml && \
+RUN apk add --update build-base curl bash ocaml util-linux && \
     # Download & Install Unison
     curl -L https://github.com/bcpierce00/unison/archive/v$UNISON_VERSION.tar.gz | tar zxv -C /tmp && \
     cd /tmp/unison-${UNISON_VERSION} && \
@@ -15,7 +15,9 @@ RUN apk add --update build-base curl bash ocaml && \
     apk del build-base curl ocaml && \
     # Remove tmp files and caches
     rm -rf /var/cache/apk/* && \
-    rm -rf /tmp/unison-${UNISON_VERSION}
+    rm -rf /tmp/unison-${UNISON_VERSION} 
+
+RUN    adduser -D -u 101 nginx 
 
 VOLUME ["/mnt/app_data","/mnt/host/var"]
 

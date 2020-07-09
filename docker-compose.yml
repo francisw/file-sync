@@ -9,6 +9,7 @@ services:
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
+    user: "nginx:nginx"
     environment:
       NODENAME: '${HOSTNAME}'
     deploy:
@@ -26,6 +27,7 @@ services:
     container_name: file-sync-daemon-1    
     ports:
             - "9991:9999"
+    user: "nginx:nginx"
     environment:
       NODENAME: '${HOSTNAME}'
       ADVERTISE_PORT: 9991
@@ -50,6 +52,7 @@ services:
     container_name: file-sync-daemon-2    
     ports:
       - "9992:9999"
+    user: "nginx:nginx"
     environment:
       ADVERTISE_PORT: 9992
       NODENAME: '${HOSTNAME}'
@@ -74,6 +77,7 @@ services:
     container_name: file-sync-daemon-3    
     ports:
             - "9993:9999"
+    user: "nginx:nginx"
     environment:
       ADVERTISE_PORT: 9993
       NODENAME: '${HOSTNAME}'
@@ -106,6 +110,7 @@ services:
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
+    user: "nginx:nginx"
     environment:
       NODENAME: '${HOSTNAME}'
     deploy:
@@ -132,6 +137,7 @@ services:
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
+    user: "nginx:nginx"
     environment:
       NODENAME: '${HOSTNAME}'
     deploy:
@@ -158,6 +164,7 @@ services:
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
+    user: "nginx:nginx"
     environment:
       NODENAME: '${HOSTNAME}'
     deploy:

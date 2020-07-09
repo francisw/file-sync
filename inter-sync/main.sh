@@ -1,9 +1,10 @@
 #!/bin/bash
+set -x
 
 SRC=/mnt/app_data/cacheable
 CACHE=/mnt/host/var/app_data
 
-cd /mnt/app_data/cacheable/.file-sync
+cd /mnt/app_data/.file-sync
 
 # Advert spec is {node}/{port}
 # Idea for a Cleanup old if healtcheck refreshes the advert_taken files
@@ -44,14 +45,6 @@ CONTRACT="contracts/${NODENAME}/${ADVERTISED_NODE}"  # Filename to announce what
 echo ${ADVERTISED_PORT} > ${CONTRACT}  	# so we have some record of who is synching with whom
 echo "${NODENAME} taking advertised ${TARGET}" >&2
 
-echo unison 	\
-	-root socket://${TARGET}/ \
-	-root ${CACHE} \
-	-killserver \
-	-batch \
-	-group -owner -times \
-	-repeat watch \
-	-prefer newer  
 unison 	\
 	-root socket://${TARGET}/ \
 	-root ${CACHE} \

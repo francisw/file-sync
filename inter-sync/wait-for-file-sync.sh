@@ -1,13 +1,11 @@
 #!/bin/bash
 
-SRC=/mnt/app_data/cacheable/.file-sync
-CACHE=/mnt/host/var/app_data/.file-sync
+SRC=/mnt/app_data/cacheable
+CACHE=/mnt/host/var/app_data/
 
 [ -z $NODENAME ] && echo "NODENAME env required" && exit 1
 
-RANDOM=$(date +%N)
-ALTRANDOM=$(date +%s)
-PROBE=$NODENAME.${RANDOM}.${ALTRANDOM}
+PROBE=$NODENAME.`uuidgen`
 
 echo > ${SRC}/${PROBE}
 until [ -f ${CACHE}/${PROBE} ]; do
