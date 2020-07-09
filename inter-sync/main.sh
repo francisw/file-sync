@@ -14,9 +14,9 @@ cd /mnt/app_data/cacheable/.file-sync
 # Setup folders
 # ./adverts/${NODENAME}
 # ./contracts/${NODENAME}
-[ ! -d ${SRC}/adverts/${NODENAME} -o ! -d ${SRC}/contracts/${NODENAME} ] && \
-        mkdir -p ${SRC}/adverts/${NODENAME} ${SRC}/contracts/${NODENAME} && \
-        chmod a+rwx ${SRC}/*/${NODENAME}
+[ ! -d adverts/${NODENAME} -o ! -d contracts/${NODENAME} ] && \
+        mkdir -p adverts/${NODENAME} contracts/${NODENAME} && \
+        chmod a+rwx */${NODENAME}
 
 
 # We don't want adverts from this node, or other nodes that this node is already contracted to
