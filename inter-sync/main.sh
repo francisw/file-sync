@@ -11,6 +11,14 @@ cd /mnt/app_data/cacheable/.file-sync
 
 [ -z $NODENAME ] && echo "NODENAME env required" && exit 1
 
+# Setup folders
+# ./adverts/${NODENAME}
+# ./contracts/${NODENAME}
+[ ! -d ${SRC}/adverts/${NODENAME} -o ! -d ${SRC}/contracts/${NODENAME} ] && \
+        mkdir -p ${SRC}/adverts/${NODENAME} ${SRC}/contracts/${NODENAME} && \
+        chmod a+rwx ${SRC}/*/${NODENAME}
+
+
 # We don't want adverts from this node, or other nodes that this node is already contracted to
 # Each advert is stored in adverts/{AdvertisingNode}/{AdvertisingPort}
 # Each contract already taken by this node is stored in contracts/{ThisNode}/{ConnectedNode} and the file contains the connectedPort
@@ -18,7 +26,7 @@ IGNORE=(`ls contracts/${NODENAME}`)
 IGNORE+=(${NODENAME})
 IGNORE_LIST=${IGNORE[*]//\s/\|}
 # Get all adverts not from this node
-ADVERTS=(`ls */* | grep -v ${IGNORE_LIST}`)
+ADVERTS=(`ls adverts/*/* | grep -v ${IGNORE_LIST}`)
 if [ ${#ADVERTS[@]} -eq 0 ]; then
 	>&2 echo "No Daemon node advert(s) found"
 	exit 0
