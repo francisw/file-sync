@@ -5,21 +5,8 @@ SRC=/mnt/app_data/cacheable
 CACHE=/mnt/host/var/app_data
 
 cd /mnt/app_data/.file-sync
-[ $? -ne 0 ] && ls -l /mnt
-
-# Advert spec is {node}/{port}
-# Idea for a Cleanup old if healtcheck refreshes the advert_taken files
-# find * -type f -mmin +5 -exec rm -f {} +
 
 [ -z $NODENAME ] && echo "NODENAME env required" && exit 1
-
-# Setup folders
-# ./adverts/${NODENAME}
-# ./contracts/${NODENAME}
-[ ! -d adverts/${NODENAME} -o ! -d contracts/${NODENAME} ] && \
-        mkdir -p adverts/${NODENAME} contracts/${NODENAME} && \
-        chmod a+rwx */${NODENAME}
-
 
 # We don't want adverts from this node, or other nodes that this node is already contracted to
 # Each advert is stored in adverts/{AdvertisingNode}/{AdvertisingPort}
