@@ -5,7 +5,7 @@ services:
     build: 
       context: file-sync/ 
     container_name: file-sync 
-    image: swarm-manager:5000/brcms/file-sync
+    image: ${DOCKER_REPO}/brcms/file-sync
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
@@ -31,7 +31,7 @@ services:
     environment:
       NODENAME: '${HOSTNAME}'
       ADVERTISE_PORT: 9991
-    image: swarm-manager:5000/brcms/file-sync-daemon
+    image: ${DOCKER_REPO}/brcms/file-sync-daemon
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
@@ -56,7 +56,7 @@ services:
     environment:
       ADVERTISE_PORT: 9992
       NODENAME: '${HOSTNAME}'
-    image: swarm-manager:5000/brcms/file-sync-daemon
+    image: ${DOCKER_REPO}/brcms/file-sync-daemon
     volumes:
       - /mnt/app_data/:/mnt/app_data
       - /var:/mnt/host/var
@@ -81,7 +81,7 @@ services:
     environment:
       ADVERTISE_PORT: 9993
       NODENAME: '${HOSTNAME}'
-    image: swarm-manager:5000/brcms/file-sync-daemon
+    image: ${DOCKER_REPO}/brcms/file-sync-daemon
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
@@ -106,7 +106,7 @@ services:
     build:
       context: inter-sync/
     container_name: inter-sync-1
-    image: swarm-manager:5000/brcms/inter-sync
+    image: ${DOCKER_REPO}/brcms/inter-sync
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
@@ -133,7 +133,7 @@ services:
     build:
       context: inter-sync/
     container_name: inter-sync-2    
-    image: swarm-manager:5000/brcms/inter-sync
+    image: ${DOCKER_REPO}/brcms/inter-sync
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
@@ -160,7 +160,7 @@ services:
     build:
       context: inter-sync/
     container_name: inter-sync-3    
-    image: swarm-manager:5000/brcms/inter-sync
+    image: ${DOCKER_REPO}/brcms/inter-sync
     volumes:
      - /mnt/app_data/:/mnt/app_data
      - /var:/mnt/host/var
